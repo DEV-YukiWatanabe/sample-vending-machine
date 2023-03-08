@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+use src\Domain\ItemFactory;
+
 /**
  * メインクラス。
  * 原則ここにロジックは書かないこと。
@@ -19,7 +21,9 @@ class Main
      */
     public static function runSimply(array $coins, string $menu): string
     {
-        return "do implementation";
+        $factory = new ItemFactory();
+        $item = $factory->create($menu);
+        return (string)$item->price();
     }
 
     /**

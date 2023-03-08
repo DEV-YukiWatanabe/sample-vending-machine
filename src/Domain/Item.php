@@ -7,17 +7,17 @@ class Item extends Product
     public function __construct(
         private readonly string $name,
         // TODO: 値オブジェクト作るかはあとで考える
-//        private readonly int $price
+        private readonly int $price
     ) {
     }
 
-    public function getName(): string
+    public function name(): string
     {
         return $this->name;
     }
 
-//    public function getPrice(): int
-//    {
-//        return $this->price;
-//    }
+    public function price(): int
+    {
+        return $this->price;
+    }
 }
