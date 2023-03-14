@@ -22,10 +22,11 @@ class Main
      */
     public static function runSimply(array $coins, string $menu): string
     {
+        // TODO: 一連の処理をまとめたユースケースを作成
         $factory = new ItemFactory();
         $item = $factory->create($menu);
         $changeCalculator = new ChangeCalculator();
-        return $changeCalculator->calculate($coins, $item->price());
+        return $changeCalculator->calculateChange($coins, $item->price());
     }
 
     /**
