@@ -2,8 +2,10 @@
 
 declare(strict_types=1);
 
-use src\Domain\ChangeCalculator;
-use src\Domain\ItemFactory;
+namespace src\archive;
+
+use src\archive\Domain\ChangeCalculator;
+use src\archive\Domain\ItemFactory;
 
 /**
  * メインクラス。

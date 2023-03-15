@@ -1,6 +1,6 @@
 <?php
 
-namespace src\Domain;
+namespace src\archive\Domain;
 
 class ItemFactory extends Factory
 {
