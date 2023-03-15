@@ -24,6 +24,14 @@ class Main
      */
     public static function runSimply(array $coins, string $menu): string
     {
+        // $menu から購入商品を検索
+
+        // $array と取得した商品の金額からおつりを計算
+
+        // おつりの硬貨の枚数を計算
+
+        // 書式に合わせてフォーマット
+
         return "do implementation";
     }
 
