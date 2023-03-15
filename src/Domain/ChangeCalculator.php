@@ -4,7 +4,7 @@ namespace src\Domain;
 
 class ChangeCalculator
 {
-    private const COIN_TYPES = [500, 100, 50, 10, 1];
+    private const COIN_TYPES = [1000, 500, 100, 50, 10, 1];
 
     public function calculateChange(array $coins, int $price) :string {
         $amount = $this->calculateTotalAmount($coins);
@@ -15,12 +15,15 @@ class ChangeCalculator
         }
 
         $change_coins = [];
-        foreach ($this::COIN_TYPES as $i => $coin_type) {
-            $change_coins[$coin_type] = floor($change / $coin_type);
-            $change -= $coin_type * $change_coins[$coin_type];
+        foreach ($this::COIN_TYPES as $coin_type) {
+            $coin_count = floor($change / $coin_type);
+            if ($coin_count > 0) {
+                $change_coins[$coin_type] = $coin_count;
+                $change -= $coin_type * $change_coins[$coin_type];
+            }
         }
 
-        return $change_coins;
+        return $this->toString($change_coins);
     }
 
     private function calculateTotalAmount(array $coins) :int {
@@ -30,5 +33,13 @@ class ChangeCalculator
             $total += $v * $count;
         }
         return $total;
+    }
+
+    private function toString(array $coins): string {
+        $result = "";
+        foreach ($coins as $coin_type => $coin_count) {
+            $result .= $coin_type . " " . $coin_count . " ";
+        }
+        return trim($result);
     }
 }
