@@ -25,6 +25,19 @@ class Main
     public static function runSimply(array $coins, string $menu): string
     {
         // $menu から購入商品を検索
+        $menuPriceMap = [
+            'cola' => 120,
+            'coffee' => 150,
+            'energy_drink' => 210
+        ];
+
+        if (!array_key_exists($menu, $menuPriceMap)) {
+            return 'hoge';
+        }
+
+        $price = $menuPriceMap[$menu];
+
+        // 投入金額の合計を計算
 
         // $array と取得した商品の金額からおつりを計算
 
